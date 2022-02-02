@@ -1,12 +1,12 @@
 //import logo from './logo.svg';
 import './App.css';
-import { Gender } from './screen/genderScreen';
+import { GenderScreen } from './screen/genderScreen';
 
 function App(){
 
   return ( <div className="App">
     
-    <Gender />
+    <GenderScreen />
 
     </div>
   );

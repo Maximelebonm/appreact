@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "pantalon"
+    },
+    {
+        "id": 2,
+        "title": "tshirt"
+    },
+    {
+        "id": 3,
+        "title": "pull"
+    },
+    {
+        "id": 4,
+        "title": "chaussure"
+    },
+    {
+        "id": 5,
+        "title": "sousVetement"
+    },
+    {
+        "id": 6,
+        "title": "accessoire"
+    }
+]

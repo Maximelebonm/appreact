@@ -1,30 +1,34 @@
+import { useEffect, useState } from "react";
 import { CardGender } from "../component/cardgender";
+import { Gender } from "../models/gender.model";
 
-export function Gender(props) {
+export function GenderScreen() {
+
+
+    const [genders, setGenders] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let data = Gender.from(await (await fetch('./data/gender.json')).json());
+            setGenders(data);
+        }
+        fetchData().catch(console.error);
+    }, [genders])
+
+
 
     return (
-        
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-3 ">
-                        <CardGender src="https://picsum.photos/id/237/400/300" title="Homme" desc="catégorie pour homme" />
-                    </div>
 
-                    <div className="col-3">
-                        <CardGender src="https://picsum.photos/id/236/400/300" title="Femme" desc="catégorie pour femme" />
-                  
-                </div>
-               
-                    <div className="col-3">
-                        <CardGender src="https://picsum.photos/id/238/400/300" title="Enfant" desc="catégorie pour enfant" />
-                
-                </div>
-            
-                    <div className="col-3">
-                        <CardGender src="https://picsum.photos/id/239/400/300" title="Bebe" desc="catégorie pour bebe" />
-                 </div>
-                </div>
+        <div className="container-fluid">
+            <div className="row">
+                {genders.map(gender => {
+                    return (
+                        <div className="col-3 ">
+                            <CardGender src={gender.image} title={gender.title} desc={gender.description} />
+                        </div>
+                    )
+                })}
             </div>
-        
+        </div>
     );
 }

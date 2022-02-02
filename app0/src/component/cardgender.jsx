@@ -3,8 +3,6 @@ export function CardGender(props) {
     const {src, title, desc} = props
 
     return (
-   
-
         <div className="card text-white bg-dark">          
                 <img src={src} className="card-img-top" />           
                 <div className="card-body">
@@ -12,10 +10,6 @@ export function CardGender(props) {
                 <p className="card-text"> {desc}</p>
                 <a href="#" className="btn btn-light">{title}</a>
                 </div>
-        </div>
-            
-       
-      
-    
+        </div>   
     );
 }
