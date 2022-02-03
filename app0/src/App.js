@@ -1,14 +1,16 @@
 //import logo from './logo.svg';
 import './App.css';
-import { Footer } from './component/Footer';
-import { Header } from './component/Header';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 import { GenderScreen } from './screen/genderScreen';
+import { HomeScreen } from './screen/HomeScreen';
+
 
 function App(){
 
   return (<div className="App">
     <Header/>
-    <GenderScreen/>
+    <HomeScreen/>
     <Footer/>
 
     </div>
