@@ -11,6 +11,7 @@ export class Gender extends BaseModel{
     title = "";
     description="";
     image ="";
+    
 
 
 }

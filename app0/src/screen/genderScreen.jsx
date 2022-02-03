@@ -16,7 +16,6 @@ export function GenderScreen() {
     }, [genders])
 
 
-
     return (
 
         <div className="container-fluid">
@@ -24,7 +23,7 @@ export function GenderScreen() {
                 {genders.map(gender => {
                     return (
                         <div className="col-3 ">
-                            <CardGender src={gender.image} title={gender.title} desc={gender.description} />
+                            <CardGender src={gender.image} title={gender.title} description={gender.description} />
                         </div>
                     )
                 })}

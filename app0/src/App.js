@@ -1,12 +1,15 @@
 //import logo from './logo.svg';
 import './App.css';
+import { Footer } from './component/Footer';
+import { Header } from './component/Header';
 import { GenderScreen } from './screen/genderScreen';
 
 function App(){
 
-  return ( <div className="App">
-    
-    <GenderScreen />
+  return (<div className="App">
+    <Header/>
+    <GenderScreen/>
+    <Footer/>
 
     </div>
   );
