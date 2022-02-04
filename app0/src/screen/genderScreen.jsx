@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CardGender } from "../components/cardgender";
 import { Gender } from "../models/gender.model";
 
-export function GenderScreen() {
+function GenderScreen() {
 
 
     const [genders, setGenders] = useState([]);
@@ -32,3 +32,5 @@ export function GenderScreen() {
         </div>
     );
 }
+
+export default GenderScreen

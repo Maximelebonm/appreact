@@ -5,7 +5,7 @@ import { Gender } from '../models/gender.model';
 import { Product } from '../models/product.model';
 
 
-export function HomeScreen() {
+function HomeScreen() {
     const [homes, setHomes] = useState([])
     useEffect(() => {
         const fetchData = async () => {
@@ -71,3 +71,5 @@ export function HomeScreen() {
 
     )
 }
+
+export default HomeScreen
