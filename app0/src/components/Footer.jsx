@@ -1,4 +1,4 @@
-export const Footer = () => {
+const Footer = () => {
     return (
         // <!-- Footer -->
 <footer className="text-center text-lg-start bg-light text-muted">
@@ -120,3 +120,5 @@ export const Footer = () => {
 // <!-- Footer-- >
     )
 }
+
+export default Footer;
