@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import GenericCard from "../components/GenericCard";
 import { CardGender } from "../components/cardgender";
 import { Gender } from "../models/gender.model";
 
@@ -24,7 +25,7 @@ function GenderScreen() {
                 {genders.map(gender => {
                     return (
                         <div className="col-3 ">
-                            <CardGender src={gender.image} title={gender.title} description={gender.description} />
+                            <GenericCard imgSrc={gender.image} title={gender.title} description={gender.description}/>
                         </div>
                     )
                 })}
