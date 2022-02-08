@@ -14,6 +14,8 @@ function HomeScreen() {
         }
         fetchData().catch(console.error);;
     }, [homes])
+    
+
 
     const [products, setProducts] = useState([])
     useEffect(() => {

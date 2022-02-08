@@ -5,6 +5,7 @@ import React, {Suspense} from 'react';
 import BaseScreen from './screen/BaseScreen';
 import LoadingSpinner from './components/LoadingSpinner';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import TestScreen from './screen/testScreen';
 const HomeScreen = React.lazy(() => import("./screen/HomeScreen"));
 const GenderScreen = React.lazy(() => import("./screen/genderScreen"));
 const NotFoundScreen = React.lazy(() => import("./screen/NotFoundScreen"));
@@ -19,6 +20,14 @@ function App() {
             element={ 
               <Suspense fallback={<LoadingSpinner/>}>
                 <HomeScreen />
+              </Suspense>
+            }             
+          />
+            <Route 
+            path="/test"
+            element={ 
+              <Suspense fallback={<LoadingSpinner/>}>
+                <TestScreen />
               </Suspense>
             } 
           />
