@@ -22,8 +22,16 @@ function App() {
               </Suspense>
             } 
           />
-          <Route 
+            <Route 
             path="/gender"
+            element={ 
+              <Suspense fallback={<LoadingSpinner/>}>
+                <GenderScreen />
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/gender/:id"
             element={ 
               <Suspense fallback={<LoadingSpinner/>}>
                 <GenderScreen />

@@ -1,37 +1,81 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useParams } from "react-router-dom";
 import GenericCard from "../components/GenericCard";
 import { CardGender } from "../components/cardgender";
+import { Product } from "../models/product.model";
 import { Gender } from "../models/gender.model";
+import { Link } from "react-router-dom";
 
-function GenderScreen() {
+
+const GenderScreen = () => {
 
 
     const [genders, setGenders] = useState([]);
+    const { id } = useParams();
+    const genderRef = useRef(null);
+    const productsRef = useRef([]);
+    let page = 1;
+    let startElement = 0;
+    let endElement = 9;
+  
 
     useEffect(() => {
         const fetchData = async () => {
-            let data = Gender.from(await (await fetch('./data/gender.json')).json());
-            setGenders(data);
+            const genders = Gender.from(await (await fetch('/data/gender.json')).json()
+            );
+            if (id){
+                const products = Product.from(
+                    await(await (await fetch("/data/product.json")).json())
+                );
+                genderRef.current = genders.find((g) => g.id === +id);
+                productsRef.current = products.filter((p)=> p.gender_id === +id).slice(startElement, endElement);
+              console.log(genderRef)  
+            }
+            setGenders(genders);       
         }
+
         fetchData().catch(console.error);
-    }, [genders])
+    }, [id]);
 
+    const gender = genderRef.current;
+    console.log(gender)
+    const products = productsRef.current;
+    console.log(products)
 
-    return (
-        
-
+    return (       
+        <>
+        <h1>GenderScreen</h1>
+        {!id &&(        
         <div className="container-fluid">
             <div className="row">
-                {genders.map(gender => {
+                {genders.map((g) => {
                     return (
-                        <div className="col-3 ">
-                            <GenericCard imgSrc={gender.image} title={gender.title} description={gender.description}/>
+                        <div className="col-3" key={g.id}>
+                         
+                            <GenericCard 
+                            imgSrc={g.image} 
+                            title={g.title} 
+                            description={g.description}
+                            route={"/gender/" + g.id}
+                            />                     
                         </div>
-                    )
+                    );
                 })}
             </div>
         </div>
+                
+        )}
+        {id && gender && (
+            <div className="row">
+                <h2>Gender {gender.title}</h2>
+                {products.map(p => {
+                    return <div key={p.id}> {p.title} : {p.price.toFixed(2)}€ </div>;
+                })}
+            
+            </div>
+        )}
+        </>
     );
-}
+};
 
-export default GenderScreen
+export default GenderScreen;

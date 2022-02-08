@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 
 export function Caroussel(props) {
@@ -53,17 +53,9 @@ export function Caroussel(props) {
         return () => clearInterval(interval);
     }, [isActive, index, productscar]);
 
-
-
-
-
-
     return (
 
-
-
         <div className="card text-white bg-dark">
-
 
             <img src={currentProduct?.image} className="card-img-top" alt="..." />
 
@@ -78,7 +70,6 @@ export function Caroussel(props) {
 
             </div>
         </div>
-
              
     )
 }
