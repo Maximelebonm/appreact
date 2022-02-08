@@ -33,7 +33,6 @@ const GenderScreen = () => {
             }
             setGenders(genders);       
         }
-
         fetchData().catch(console.error);
     }, [id]);
 
