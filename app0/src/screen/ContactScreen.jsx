@@ -1,9 +1,20 @@
+import { useEffect } from "react";
 import GenericForm from "../generic/GenericForm";
 
 const ContactScreen = () => {
     const handleSubmit = async (response) => {
         console.log(await response.text());
       };
+
+      useEffect(()=>{
+        const fetchData = async () => {
+          const contact = 
+            await(await (await fetch("http://localhost:5001/contact")).json())      
+          console.log(contact)
+        }
+        fetchData().catch(console.error);
+      })
+
 
     return (
       <>
