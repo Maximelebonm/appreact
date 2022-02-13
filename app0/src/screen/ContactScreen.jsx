@@ -3,7 +3,10 @@ import GenericForm from "../generic/GenericForm";
 
 const ContactScreen = () => {
     const handleSubmit = async (response) => {
-        console.log(await response.text());
+      let r = await response.text();
+        console.log(r);
+        return r
+
       };
 
       useEffect(()=>{

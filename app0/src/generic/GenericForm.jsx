@@ -38,7 +38,7 @@ const GenericForm = (props) => {
         const formData = new FormData(form);
         const jsonData = Object.fromEntries(formData.entries());
         const body = JSON.stringify(jsonData);
-        
+        console.log(body);
         await fetch(endpoint, {
           method,
           headers: {
