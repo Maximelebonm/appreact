@@ -9,14 +9,14 @@ const ContactScreen = () => {
       useEffect(()=>{
         const fetchData = async () => {
           const contact = 
-            await(await (await fetch("http://localhost:5001/contact")).json())      
-          console.log(contact)
+            await (await fetch("http://localhost:5001/contact")).json()    
+          console.log(contact);
         }
         fetchData().catch(console.error);
       })
-
-
+      console.log();
     return (
+ 
       <>
         <h1>ContactScreen</h1>
         <GenericForm
@@ -70,9 +70,10 @@ const ContactScreen = () => {
               name="message"
               rows="5"
               
-            ></textarea>
+              ></textarea>
           </div>
         </GenericForm>
+
       </>
     );
   };
